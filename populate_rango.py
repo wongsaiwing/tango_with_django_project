@@ -12,13 +12,17 @@ def populate():
         {'title':'How to Think like a Computer Scientist',
         'url':'http://www.greenteapress.com/thinkpython/'}, 
         {'title':'Learn Python in 10 Minutes',
-        'url':'http://www.korokithakis.net/tutorials/python/'} ] 
+        'url':'http://www.korokithakis.net/tutorials/python/'},
+
+        {'title': 'Testing',
+        'url':'http://testing/tutorial/'} ] 
 
     django_pages = [
         {'title':'Official Django Tutorial', 
         'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
         {'title':'Django Rocks', 
         'url':'http://www.djangorocks.com/'},
+
         {'title':'How to Tango with Django', 
         'url':'http://www.tangowithdjango.com/'} ]
 
@@ -30,7 +34,8 @@ def populate():
         
     cats = {'Python': {'pages': python_pages},
         'Django': {'pages': django_pages},
-        'Other Frameworks': {'pages': other_pages} }
+        'Other Frameworks': {'pages': other_pages}
+        }
 
     for cat, cat_data in cats.items():
         c = add_cat(cat)
@@ -49,7 +54,15 @@ def add_page(cat,title,url,views=0):
     return p
     
 def add_cat(name):
-    c = Category.objects.get_or_create(name=name)[0] 
+    #views & likes from Category model:
+
+    #v = Category.object.get_or_create(views = views)[0]
+    #v.save()
+    #l = Category.objects.get_or_create(likes=likes)[0]
+    #l.save()
+    #
+
+    c = Category.objects.get_or_create(name=name)[0]
     c.save()
     return c
 
