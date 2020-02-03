@@ -4,14 +4,15 @@ from rango.models import Category
 
 def index(request):
 
-    category_list = Category.objects.order_by('-likes')[:5]
+    #category_list = Category.objects.order_by('-likes')[:5]
+    #context_dict={}
+    #context_dict['boldmessage'] = 'Chunchy, creamy, cookie, candy, cupcake!'
+    #context_dict['category'] = category_list
 
-    context_dict={}
-    context_dict['boldmessage'] = 'Chunchy, creamy, cookie, candy, cupcake!'
-    context_dict['category'] = category_list
-
+    context_dict = {'boldmessage': 'Chunchy, creamy, cookie, candy, cupcake!'}
     return render(request, 'rango/index.html', context=context_dict)
-    #context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
-    #return render(request, 'rango/index.html', context=context_dict)
     
+def about(request):
+    return render(request, 'rango/about.html')
+
 # Create your views here.
