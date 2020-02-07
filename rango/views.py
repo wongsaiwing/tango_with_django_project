@@ -18,8 +18,10 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
     
 def about(request):
-    context_dict = {'boldmessage':'This tutorial has been put together by Sai Wing Wong'}
-    return render(request, 'rango/about.html', context=context_dict)
+    #context_dict = {'boldmessage':'This tutorial has been put together by Sai Wing Wong'}
+    print(request.method)
+    print(request.user)
+    return render(request, 'rango/about.html', {})
 
 def show_category(request, category_name_slug):
     context_dict={}
